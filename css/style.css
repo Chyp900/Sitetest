@@ -12,7 +12,96 @@ header, footer {
     text-align: center;
     padding: 20px;
 }
+.logo_img {
+    width: 50%;
+    max-width: 100px;
+    display: block;
+    margin-right: auto;
+}
+/* Estilo do botão do WhatsApp */
+.whats-balloon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366; /* Cor do WhatsApp */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    overflow: hidden; /* Importante para conter a animação */
+    z-index: 1000;
+}
 
+/* Estilo do ícone */
+.whats-balloon img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Elemento para o efeito de pincel */
+.brush-effect {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    bottom: -20px;
+    left: -20px;
+    /* Aqui você pode usar uma imagem de pincel stroke, por exemplo: */
+    background: url('imagens/brushstroke.png') no-repeat center;
+    background-size: contain;
+    opacity: 0;
+}
+
+/* Animação do pincel: ele aparece, expande e some */
+@keyframes brushAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) rotate(-45deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* Quando ativado, o efeito de pincel é disparado */
+.whats-balloon.active .brush-effect {
+    animation: brushAnimation 1s ease-out forwards;
+}
+
+/* Estilo para o texto "Entre em contato" - inicialmente escondido */
+.contact-text {
+    display: none;
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #25D366;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+/* Mostra o texto quando a classe active é adicionada */
+.whats-balloon.active .contact-text {
+    display: block;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+/* Animação simples de fade-in para o texto */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 main {
     max-width: 800px;
     margin: 20px auto;

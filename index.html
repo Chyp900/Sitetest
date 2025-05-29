@@ -7,9 +7,13 @@
     <title>Serviço de Lavagem e Pintura</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
+
 <body>
     <header>
-        <h1>{Aqui fica basicamente o titulo} Obs: ta feiao mesmo pois eu nunca tinha feito isso.</h1>
+        <img src="imagens/logo.jpeg" alt="logo do site" class="logo_img">
+        <h1>Prime Pintura</h1>
+        <h2>Transformando Por Onde Passa</h2>
     </header>
     <main>
         <section>
@@ -24,5 +28,24 @@
     <footer>
         <p>&copy; 2025 Serviço Residencial. Todos os direitos reservados.</p>
     </footer>
+    <!-- Botão do WhatsApp com efeito -->
+    <a href="#" class="whats-balloon" title="Fale conosco pelo WhatsApp">
+        <img src="imagens/whatsapp-icon.png" alt="WhatsApp">
+        <!-- Texto que aparecerá -->
+        <span class="contact-text">Entre em contato</span>
+        <!-- Elemento que exibirá o efeito do pincel -->
+        <div class="brush-effect"></div>
+    </a>
+    <script>
+        window.addEventListener('load', function() {
+          setTimeout(function() {
+            // Adiciona a classe "active" para disparar a animação
+            const whatsButton = document.querySelector('.whats-balloon');
+            if (whatsButton) {
+              whatsButton.classList.add('active');
+            }
+          }, 5000); // 10.000 milissegundos = 5 segundos
+        });
+      </script>
 </body>
 </html>
